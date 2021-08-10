@@ -135,7 +135,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             if (confirma == JOptionPane.YES_OPTION) {
                  String sql = "delete from tbusuarios where iduser=?";
             try {
-                    pst = conexao.prepareStatement(sql);
+                pst = conexao.prepareStatement(sql);
                 pst.setString(1, textUsuId.getText());
                 int delete = pst.executeUpdate();
                  if (delete > 0) {
@@ -187,6 +187,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Usuarios");
         setPreferredSize(new java.awt.Dimension(765, 0));
+        setRequestFocusEnabled(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("*Nome");
