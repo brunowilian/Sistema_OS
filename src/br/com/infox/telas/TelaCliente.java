@@ -30,7 +30,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }
 
     private void pesquisar_cliente() {
-        String sql = "select * from tbclientes where nomecli like ?";
+        String sql = "select idcli as Id, nomecli as Nome, endcli as Endereço, fonecli as Fone, emailcli as Email from tbclientes where nomecli like ?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCliPesquisar.getText() + "%");
@@ -185,8 +185,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setForeground(java.awt.Color.white);
         setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("Cliente");
         setToolTipText("");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,7 +210,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btn_AdicionarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 381, -1, 69));
+        getContentPane().add(btn_Adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, -1, 69));
 
         btn_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/update.png"))); // NOI18N
         btn_Alterar.setToolTipText("Alterar");
@@ -223,7 +221,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btn_AlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 381, -1, 69));
+        getContentPane().add(btn_Alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, 69));
 
         btn_Remover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/delete.png"))); // NOI18N
         btn_Remover.setToolTipText("Remover");
@@ -234,7 +232,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btn_RemoverActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Remover, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 381, -1, 69));
+        getContentPane().add(btn_Remover, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, -1, 69));
         getContentPane().add(txt_Nome_Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 215, 370, -1));
         getContentPane().add(txt_End_Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 249, 370, -1));
         getContentPane().add(txt_Tel_Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 289, 151, -1));
@@ -253,19 +251,26 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel7.setText("* Campos obrigatorios");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, -1, -1));
 
+        tblClientes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColIndex){
+                return false;
+            }
+        };
         tblClientes.setBorder(new javax.swing.border.MatteBorder(null));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Endereço", "Fone", "Email"
             }
         ));
         tblClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblClientes.setFocusable(false);
+        tblClientes.getTableHeader().setReorderingAllowed(false);
         tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblClientesMouseClicked(evt);
@@ -275,7 +280,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 740, 160));
 
-        setBounds(0, 0, 823, 537);
+        setBounds(0, 0, 823, 521);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdicionarActionPerformed

@@ -213,7 +213,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuAjuSobActionPerformed
 
     private void MenuCadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadOsActionPerformed
-        // TODO add your handling code here:
+        // chamando tela OS
+        TelaOS os = new TelaOS();
+        os.setVisible(true);
+        desktop.add(os);
     }//GEN-LAST:event_MenuCadOsActionPerformed
 
     private void menuCadUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadUsoActionPerformed
