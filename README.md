@@ -16,8 +16,8 @@
 
 ### Tela de Clientes
 ![clientes](https://user-images.githubusercontent.com/81261373/129659340-eb87607b-d973-49c3-bf5a-8d714cd8ea14.jpeg)
-#### Essa tela é para cadastrar um novo criente, fazer uma alteração de um antigo ou excluir o mesmo. No momento que é realizado uma pesquisa no banco de dados e selecionado um cliente já cadastrado, a opção de cadastrar um novo criente fica indisponivel, assim só podendo realizar uma alteração ou excluir o cliente. No momento da pesquisa do cliente, a tabela já é preenchida com os resultados correspondentes, quando clicar no nome ele preenche todos os campos.
+#### Essa tela é para cadastrar um novo clientes, fazer uma alteração de um antigo ou excluir o mesmo. No momento que é realizado uma pesquisa no banco de dados e selecionado um cliente já cadastrado, a opção de cadastrar um novo cliente fica indisponivel, assim só podendo realizar uma alteração ou excluir o cliente. No momento da pesquisa do cliente, a tabela já é preenchida com os resultados correspondentes, quando clicar no nome ele preenche todos os campos.
 
 ### Tela OS
 ![OS](https://user-images.githubusercontent.com/81261373/129659888-c1154fe0-a8ae-43d6-826b-16e6508ac0f0.jpeg)
-#### Tela para fazer uma ordem de serviço, Uma OS pode ter um mesmo id, que é o mesmo do cliente, porém não pode ter o mesmo número de OS, quando é realizado a buscar pela criente e selecionado o cliente ele já colocar o id do criente na ordem de serviço, o número de OS, a data e o Id não pode ser modificados. Os botãoes, tem opção de adicionar uma OS, pesquisar uma OS (caso for realizado uma pesquisa o botão de adicioanr é desabilidado), alterar um OS e excluir uma OS.
+#### Tela para fazer uma ordem de serviço, Uma OS pode ter um mesmo id, que é o mesmo do cliente, porém não pode ter o mesmo número de OS, quando é realizado a buscar pela cliente e selecionado o cliente ele já colocar o id do cliente na ordem de serviço, o número de OS, a data e o Id não pode ser modificados. Os botãoes, tem opção de adicionar uma OS, pesquisar uma OS (caso for realizado uma pesquisa o botão de adicioanr é desabilidado), alterar um OS e excluir uma OS.
