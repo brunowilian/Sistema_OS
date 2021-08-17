@@ -89,8 +89,6 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="btnOSImprimir" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -142,7 +140,6 @@
                   <Component id="btnOSCreate" min="-2" pref="86" max="-2" attributes="0"/>
                   <Component id="btnOSUpdate" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                   <Component id="btnOSDelete" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                  <Component id="btnOSImprimir" min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
@@ -178,7 +175,6 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -338,6 +334,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtCliPesquiar">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCliPesquiarActionPerformed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCliPesquiarKeyReleased"/>
           </Events>
         </Component>
@@ -377,6 +374,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblClientesMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tblClientesKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>
@@ -488,20 +486,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOSDeleteActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnOSImprimir">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/infox/icones/impressao.png"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Imprimir OS"/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Hand Cursor"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[60, 60]"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

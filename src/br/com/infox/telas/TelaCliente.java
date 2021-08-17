@@ -241,6 +241,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/pesquisa-de-dados.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 0, -1, -1));
 
+        txtCliPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCliPesquisarActionPerformed(evt);
+            }
+        });
         txtCliPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCliPesquisarKeyReleased(evt);
@@ -307,6 +312,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         // chamando metodo para exluir cliente
         apagar_cliente();
     }//GEN-LAST:event_btn_RemoverActionPerformed
+
+    private void txtCliPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCliPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCliPesquisarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

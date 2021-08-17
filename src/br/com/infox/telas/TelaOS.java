@@ -33,6 +33,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCliPesquiar.getText() + "%");
             rs = pst.executeQuery();
+             // a linha abaixo usa a biblioteca rs2xml.jar para preencher a tabela
             tblClientes.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (Exception e) {
@@ -201,7 +202,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                     // Habilitar os objetos
                     btnOSCreate.setEnabled(true);
                     txtCliPesquiar.setEnabled(true);
-                    tblClientes.setVisible(true);
+                    //jTable1.setVisible(true);
 
                 }
             } catch (Exception e) {
@@ -250,7 +251,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
         btnOSRead = new javax.swing.JButton();
         btnOSUpdate = new javax.swing.JButton();
         btnOSDelete = new javax.swing.JButton();
-        btnOSImprimir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -323,8 +323,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                             .addComponent(rbtOrdOS, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(txtData_OS, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -354,6 +353,11 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
+        txtCliPesquiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCliPesquiarActionPerformed(evt);
+            }
+        });
         txtCliPesquiar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCliPesquiarKeyReleased(evt);
@@ -380,6 +384,11 @@ public class TelaOS extends javax.swing.JInternalFrame {
         tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblClientesMouseClicked(evt);
+            }
+        });
+        tblClientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblClientesKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tblClientes);
@@ -471,11 +480,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
             }
         });
 
-        btnOSImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/impressao.png"))); // NOI18N
-        btnOSImprimir.setToolTipText("Imprimir OS");
-        btnOSImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOSImprimir.setPreferredSize(new java.awt.Dimension(60, 60));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -520,8 +524,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
                                         .addGap(59, 59, 59)
                                         .addComponent(btnOSDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtValorOS, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(85, 85, 85)
-                        .addComponent(btnOSImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -561,8 +563,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                     .addComponent(btnOSRead, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOSCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOSUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOSDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOSImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnOSDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -590,13 +591,8 @@ public class TelaOS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnOSDeleteActionPerformed
 
     private void txtCliPesquiarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCliPesquiarKeyReleased
-
+        pesquisar_cliente();
     }//GEN-LAST:event_txtCliPesquiarKeyReleased
-
-    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
-        // chamando o metodo setar campos
-        setar_campos();
-    }//GEN-LAST:event_tblClientesMouseClicked
 
     private void rbnOrcaOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnOrcaOSActionPerformed
         // atribuindo um texto a variavel tipo selecionado
@@ -618,11 +614,23 @@ public class TelaOS extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtData_OSActionPerformed
 
+    private void txtCliPesquiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCliPesquiarActionPerformed
+        
+    }//GEN-LAST:event_txtCliPesquiarActionPerformed
+
+    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
+        // chamando o metodo setar campos
+        setar_campos();
+    }//GEN-LAST:event_tblClientesMouseClicked
+
+    private void tblClientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblClientesKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblClientesKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOSCreate;
     private javax.swing.JButton btnOSDelete;
-    private javax.swing.JButton btnOSImprimir;
     private javax.swing.JButton btnOSRead;
     private javax.swing.JButton btnOSUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
