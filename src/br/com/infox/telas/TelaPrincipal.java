@@ -42,8 +42,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadCli = new javax.swing.JMenuItem();
         MenuCadOs = new javax.swing.JMenuItem();
         menuCadUso = new javax.swing.JMenuItem();
-        menuRelatorio = new javax.swing.JMenu();
-        MenuRelSer = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         menuAjuSob = new javax.swing.JMenuItem();
         menuOpcoes = new javax.swing.JMenu();
@@ -110,15 +108,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadastro.add(menuCadUso);
 
         Menu.add(menuCadastro);
-
-        menuRelatorio.setText("Relatório");
-        menuRelatorio.setEnabled(false);
-
-        MenuRelSer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        MenuRelSer.setText("Serviços");
-        menuRelatorio.add(MenuRelSer);
-
-        Menu.add(menuRelatorio);
 
         menuAjuda.setText("Ajuda");
 
@@ -271,7 +260,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem MenuCadOs;
-    private javax.swing.JMenuItem MenuRelSer;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblData;
@@ -283,6 +271,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenuItem menuOpcSair;
     private javax.swing.JMenu menuOpcoes;
-    public static javax.swing.JMenu menuRelatorio;
     // End of variables declaration//GEN-END:variables
 }
