@@ -44,7 +44,6 @@ public class TelaLogin extends javax.swing.JFrame {
                 // a linha abaixo exibe o conteudo do campo da tabela
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
-                TelaPrincipal.menuRelatorio.setEnabled(true);
                 TelaPrincipal.menuCadUso.setEnabled(true);
                 TelaPrincipal.lblUsuario.setText(rs.getString(2));
                 //fechar tela de login depois que a tela principal for aberta
